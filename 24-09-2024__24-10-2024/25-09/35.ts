@@ -25,3 +25,16 @@ function searchInsert(nums: number[], target: number): number {
 
   return res;
 }
+
+// The problem has Binary search tag, which I overlooked
+// binarry search is efficient searching algorithm when working with sorted arrays
+// since our array is sorted we could implement one
+// binary search logic is to divide array to narow down searching areay
+// at first we divide array in halp and check whether the middle element is the target, or else should we look into higher or lower values
+// if target is greater then mid value then we disregard lower values (first half of the array) since target can be same as any value that is lower than middle
+// if target is lower then mid value then vice versa of previous step
+// we continue dividing untill we hit the target or there is nothing to divide.
+// if we hit the target we return it
+// if we does not hit anything, there are two cases
+// case 1: target is greater then any value in array, hence we reached end of the array and value to return is pointing at final elements index + 1
+// case 2: if target is to be placed somewhere in array
