@@ -18,3 +18,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Daily challenge**: skip
 - **Array problem - 1**: _35. Search Insert Position_
 - **Array problem - 2**: _66. Plus one_
+- **Array problem - 3**: _108. Convert Sorted Array to Binary Search Tree_
