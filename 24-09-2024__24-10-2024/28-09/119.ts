@@ -9,3 +9,21 @@
 
 // Its hard for me to imagine the algorithm so I'll try to start implementing
 // maybe it will come by
+
+function getRow(rowIndex: number): number[] {
+  let res = [1];
+
+  if (rowIndex === 0) return res;
+  for (let i = 0; i < rowIndex; i++) {
+    let tempArr: number[] = [];
+    for (let j = 0; j < res.length + 1; j++) {
+      if (j === 0 || j === res.length) {
+        tempArr.push(0 + res[i]);
+      } else {
+        tempArr.push(res[j - 1] + res[j]);
+      }
+    }
+    res = tempArr;
+  }
+  return res;
+}
