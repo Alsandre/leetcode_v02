@@ -52,7 +52,7 @@ function getRowV2(rowIndex: number): number[] {
   }
   return res;
 }
-console.log(getRowV2(24));
+// console.log(getRowV2(24));
 
 // factorials get out of hand because of integer limit in JS
 
@@ -77,3 +77,20 @@ console.log(getRowV2(24));
 // step 4 - setup loop incremental loop from 0 to desired row count with condition including the count
 // step 5 - if index is 0 push pointer to rowList
 // step 6 - else set pointer to pointer*index/pointer2 and push it to rowList
+
+function getRowV3(rowIndex: number): number[] {
+  let pointer = 1;
+  let pointer2 = rowIndex;
+  let rowList: number[] = [];
+  for (let i = 0; i <= rowIndex; i++) {
+    if (i === 0) {
+      rowList.push(pointer);
+    } else {
+      pointer = (pointer * pointer2) / i;
+      rowList.push(pointer);
+      pointer2--;
+    }
+  }
+  return rowList;
+}
+console.log(getRowV3(25));
