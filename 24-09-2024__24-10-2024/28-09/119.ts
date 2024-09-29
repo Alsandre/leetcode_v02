@@ -52,5 +52,28 @@ function getRowV2(rowIndex: number): number[] {
   }
   return res;
 }
+// factorials get out of hand because of integer limit in JS
+
+// I found anohter approach and I'll try to implement it
+// general form for finding row according to newly found approach is:
+// we start at 1 following we multiply by number counting down from row number
+// and divide by counting up from 1 
+
+// this means for 3:
+// first value is 1
+// second value is 1*3/1 = 3
+// third value is 3*2/2 = 3
+// fourth value is 3*1/3 = 1
+// result 1, 3, 3, 1
+// this actually represents third (0 based) row in pascals triangle
+
+// algorithm would look something like this:
+
+// step 1 - create variable pointer and set it to 1
+// step 2 - create variable rowList and set it to empty list ([])
+// step 3 - create variable pointer2 and set it to row number
+// step 4 - setup loop incremental loop from 0 to desired row count with condition including the count
+// step 5 - if index is 0 push pointer to rowList
+// step 6 - else set pointer to pointer*index/pointer2 and push it to rowList
 
 console.log(getRowV2(24))
