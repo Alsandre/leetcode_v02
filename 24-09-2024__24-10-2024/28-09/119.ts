@@ -27,3 +27,30 @@ function getRow(rowIndex: number): number[] {
   }
   return res;
 }
+
+// I found the formula for calculating Pascals Triangle which is:
+// C(n, k)= n!/k!(n-k)!
+// where C(n, k) is k-th element in n-th row
+// utilizing this formula we should get a way better performence
+
+const factorial = (n: number): BigInt => {
+  let res = BigInt(1);
+  if (n === 0) return res;
+  else {
+    for (let i = 1; i <= n; i++) {
+      res *= BigInt(i);
+    }
+    return res;
+  }
+};
+
+function getRowV2(rowIndex: number): number[] {
+  let res: number[] = [];
+  for (let i = 0; i <= rowIndex; i++) {
+    console.log(factorial(rowIndex), (factorial(i) * factorial(rowIndex - i)))
+    res.push(factorial(rowIndex) / (factorial(i) * factorial(rowIndex - i)));
+  }
+  return res;
+}
+
+console.log(getRowV2(24))
