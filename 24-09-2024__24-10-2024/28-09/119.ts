@@ -33,12 +33,12 @@ function getRow(rowIndex: number): number[] {
 // where C(n, k) is k-th element in n-th row
 // utilizing this formula we should get a way better performence
 
-const factorial = (n: number): BigInt => {
-  let res = BigInt(1);
+const factorial = (n: number): number => {
+  let res = 1;
   if (n === 0) return res;
   else {
     for (let i = 1; i <= n; i++) {
-      res *= BigInt(i);
+      res *= i;
     }
     return res;
   }
@@ -47,17 +47,19 @@ const factorial = (n: number): BigInt => {
 function getRowV2(rowIndex: number): number[] {
   let res: number[] = [];
   for (let i = 0; i <= rowIndex; i++) {
-    console.log(factorial(rowIndex), (factorial(i) * factorial(rowIndex - i)))
+    console.log(factorial(rowIndex), factorial(i) * factorial(rowIndex - i));
     res.push(factorial(rowIndex) / (factorial(i) * factorial(rowIndex - i)));
   }
   return res;
 }
+console.log(getRowV2(24));
+
 // factorials get out of hand because of integer limit in JS
 
 // I found anohter approach and I'll try to implement it
 // general form for finding row according to newly found approach is:
 // we start at 1 following we multiply by number counting down from row number
-// and divide by counting up from 1 
+// and divide by counting up from 1
 
 // this means for 3:
 // first value is 1
@@ -75,5 +77,3 @@ function getRowV2(rowIndex: number): number[] {
 // step 4 - setup loop incremental loop from 0 to desired row count with condition including the count
 // step 5 - if index is 0 push pointer to rowList
 // step 6 - else set pointer to pointer*index/pointer2 and push it to rowList
-
-console.log(getRowV2(24))
