@@ -34,7 +34,7 @@ function _maxProfit(prices: number[]): number {
 // step 2 - iterate over list
 // step 3 - for each element if it is new minimum updater curMin, calculate new profit and update if it is greater
 
-function maxProfit(prices: number[]): number {
+function __maxProfit(prices: number[]): number {
   let curMin = prices[0];
   let maxProfit = 0;
   for (let i = 0; i < prices.length; i++) {
@@ -46,4 +46,33 @@ function maxProfit(prices: number[]): number {
   return maxProfit;
 }
 
-console.log(maxProfit([15, 20, 5, 40, 1, 5, 25]));
+// the algorithm workns with O(n) comlexity and thats most we can get out of single pass algorithm
+// operations per iteration can be optimized a bit though
+// in current loop I do calculate difference for each price
+// but lets consider that there are entries that does not yield any profit
+// so if current price is greater then current min price no point calculating difference
+// although since curMin is storing first element there is no point starting at 0
+
+
+// same algorithm, but operations are optimized
+
+function maxProfit(prices: number[]): number {
+    let curMin = prices[0];
+    let maxProfit = 0;
+    for (let i = 1; i < prices.length; i++) {
+      if (prices[i] < curMin){
+        curMin = prices[i]
+      }else {
+        let diff = prices[i] - curMin
+        if(diff > maxProfit){
+            maxProfit = diff
+        }
+      }
+    }
+  
+    return maxProfit;
+  }
+  
+  console.log(maxProfit([15, 20, 5, 40, 1, 5, 25]));
+
+  // 99% memory and 74% runtime. not bad
