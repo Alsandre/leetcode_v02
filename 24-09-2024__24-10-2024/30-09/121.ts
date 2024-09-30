@@ -11,3 +11,14 @@
 // step 4 - if result is higher than diff, reassign difference to diff
 // step 5 - return diff
 
+function maxProfit(prices: number[]): number {
+    let diff = 0;
+    for(let i=0; i<prices.length-1; i++){
+        for(let j=i+1; j<prices.length; j++){
+            let curDiff = (prices[i]-prices[j])
+            if(curDiff > diff) diff = curDiff
+        }
+    }
+
+    return diff
+};
