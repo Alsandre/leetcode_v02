@@ -11,7 +11,7 @@
 // step 4 - if result is higher than diff, reassign difference to diff
 // step 5 - return diff
 
-function maxProfit(prices: number[]): number {
+function _maxProfit(prices: number[]): number {
     let diff = 0;
     for(let i=0; i<prices.length-1; i++){
         for(let j=i+1; j<prices.length; j++){
@@ -22,3 +22,14 @@ function maxProfit(prices: number[]): number {
 
     return diff
 };
+
+// Works in general but inefficient
+
+// I have tried using gpt as tutor to guide me to optimised solution.
+// despite giving good hints I still cant figure out how EXACTLY algorithm works
+// but optimised solution looks like this:
+
+// algo:
+// step 1 - create variables curMin (set it to first element in a  list) and curProfit set it to 0
+// step 2 - iterate over list
+// step 3 - for each element if it is new minimum updater curMin, calculate new profit and update if it is greater
