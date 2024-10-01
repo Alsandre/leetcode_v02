@@ -32,3 +32,22 @@ function containsNearbyDuplicate(nums: number[], k: number): boolean {
 }
 
 // works in general but inefficient
+
+// when we find valid duplicate we do return, thus terminating loop 
+// but solution is not optimal
+
+// idea 1 - if I go through array once and for each unique element create hash map 
+// with values representing occurence indicies
+// then iterate over hash map and find differences between indicies
+// that would be O(n) 
+// that should be optimal
+
+// algo: 
+// step 1 - create hashmap
+// step 2 - iterate over array and populate hashmap
+// step 3 - iterate over hash map
+// step 4 - check values  that have more than two entries
+// step 5 - compare difference of each pair
+// step 6 - if valid pair found, return
+
+
