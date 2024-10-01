@@ -21,3 +21,14 @@
 // step 4 - if no match move to next
 // step 5 - if match return true
 // step 6 - return false
+
+function containsNearbyDuplicate(nums: number[], k: number): boolean {
+  for (let j = 0; j < nums.length; j++) {
+    for (let i = j + 1; i <= j + k; i++) {
+      if (nums[j] === nums[i]) return true;
+    }
+  }
+  return false;
+}
+
+// works in general but inefficient
