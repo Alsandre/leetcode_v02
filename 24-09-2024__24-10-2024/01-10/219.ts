@@ -22,7 +22,7 @@
 // step 5 - if match return true
 // step 6 - return false
 
-function containsNearbyDuplicate(nums: number[], k: number): boolean {
+function _containsNearbyDuplicate(nums: number[], k: number): boolean {
   for (let j = 0; j < nums.length; j++) {
     for (let i = j + 1; i <= j + k; i++) {
       if (nums[j] === nums[i]) return true;
@@ -33,16 +33,16 @@ function containsNearbyDuplicate(nums: number[], k: number): boolean {
 
 // works in general but inefficient
 
-// when we find valid duplicate we do return, thus terminating loop 
+// when we find valid duplicate we do return, thus terminating loop
 // but solution is not optimal
 
-// idea 1 - if I go through array once and for each unique element create hash map 
+// idea 1 - if I go through array once and for each unique element create hash map
 // with values representing occurence indicies
 // then iterate over hash map and find differences between indicies
-// that would be O(n) 
+// that would be O(n)
 // that should be optimal
 
-// algo: 
+// algo:
 // step 1 - create hashmap
 // step 2 - iterate over array and populate hashmap
 // step 3 - iterate over hash map
@@ -50,4 +50,18 @@ function containsNearbyDuplicate(nums: number[], k: number): boolean {
 // step 5 - compare difference of each pair
 // step 6 - if valid pair found, return
 
-
+function containsNearbyDuplicate(nums: number[], k: number): boolean {
+  let hashMap: { [key: number]: number[] } = {};
+  for (let j = 0; j < nums.length; j++) {
+    if (hashMap[nums[j]]) hashMap[nums[j]].push(j);
+    else hashMap[nums[j]] = [j];
+  }
+  for (let key in hashMap) {
+    if (hashMap[key].length > 1) {
+      for (let i = 0; i < hashMap[key].length; i++) {
+        if (hashMap[key][i + 1] - hashMap[key][i] <= k) return true;
+      }
+    }
+  }
+  return false;
+}
