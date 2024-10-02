@@ -36,3 +36,6 @@ function summaryRanges(nums: number[]): string[] {
 
 console.log(summaryRanges([0, 1, 2, 4, 5, 7]));
 console.log(summaryRanges([0, 2, 3, 4, 6, 8, 9]));
+
+// basic approach in algorithm is correct, it does not cover edge cases
+// I have feeling that using hash map would optimize solution
