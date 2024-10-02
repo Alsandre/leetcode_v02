@@ -23,3 +23,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 5**: _118. Pascal's Triangle_
 - **Array problem - 6**: _121. Best Time to Buy and sell Stock_
 - **Array problem - 7**: _219. Contains Duplicate II_
+- **Array problem - 8**: _228. Summary Ranges_
