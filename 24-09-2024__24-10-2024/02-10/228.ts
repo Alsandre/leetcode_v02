@@ -14,9 +14,9 @@
 function summaryRanges(nums: number[]): string[] {
   let ranges: string[] = [];
   let rangeStart = nums[0];
+  if (nums.length < 1) return ranges;
   for (let i = 1; i < nums.length; i++) {
-    const diff = nums[i] - rangeStart;
-    if (diff === 1) continue;
+    const diff = nums[i] - nums[i - 1];
     if (diff > 1) {
       const range =
         nums[i - 1] === rangeStart
@@ -26,7 +26,13 @@ function summaryRanges(nums: number[]): string[] {
       rangeStart = nums[i];
     }
   }
+  const range =
+    nums[nums.length - 1] === rangeStart
+      ? `${rangeStart}`
+      : `${rangeStart}->${nums[nums.length - 1]}`;
+  ranges.push(range);
   return ranges;
 }
 
-console.log(summaryRanges([0,2,3,4,6,8,9]));
+console.log(summaryRanges([0, 1, 2, 4, 5, 7]));
+console.log(summaryRanges([0, 2, 3, 4, 6, 8, 9]));
