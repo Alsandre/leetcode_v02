@@ -7,3 +7,10 @@
 // trivial algo:
 // step 1 - setup loop from 0 to given length
 // step 2 - return iteration number for which indexOf returns -1
+
+function _missingNumber(nums: number[]): number {
+  for (let i = 0; i <= nums.length; i++) {
+    if (nums.indexOf(i) === -1) return i;
+  }
+  return -1;
+}
