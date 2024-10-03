@@ -32,3 +32,16 @@ function _missingNumber(nums: number[]): number {
 // step 3 - whilte iterating hash each value
 // step 4 - setup loop from 0 to array length
 // step 5 - for iteration index that is not present in hashmap return index
+
+function missingNumber(nums: number[]): number {
+  let hashmap: { [key: number]: boolean } = {};
+  nums.forEach((value) => {
+    hashmap[value] = true;
+  });
+  for (let i = 0; i <= nums.length; i++) {
+    if (!hashmap[i]) return i;
+  }
+  return -1;
+}
+
+// works but kinda not so efficiently
