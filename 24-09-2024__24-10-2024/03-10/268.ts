@@ -14,3 +14,21 @@ function _missingNumber(nums: number[]): number {
   }
   return -1;
 }
+
+// now for more optimised solution lets go with hashmapping
+// current solution has O(n^2) time complexity
+// iterating over array
+// and per iteration scanning (iterating) array
+// scanning in hash map is done in O(1)
+// so during first iteration over array we will create hashmap
+// this is O(n)
+// then we loop again to find missing value O(n)
+// overall this is 2xO(n) which is O(n)
+
+// algo:
+
+// step 1 - create hashmap
+// step 2 - iterate over array
+// step 3 - whilte iterating hash each value
+// step 4 - setup loop from 0 to array length
+// step 5 - for iteration index that is not present in hashmap return index
