@@ -6,3 +6,18 @@
 // step 2 - create loop from left to right inclusive
 // step 2 - for each iteration access element at given position in nums and add to acc
 // step 3 - return acc
+
+class NumArray {
+  private nums;
+  constructor(nums: number[]) {
+    this.nums = nums;
+  }
+
+  sumRange(left: number, right: number): number {
+    let acc = 0;
+    for (; left <= right; left++) {
+      acc += this.nums[left];
+    }
+    return acc;
+  }
+}
