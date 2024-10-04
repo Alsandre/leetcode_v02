@@ -7,11 +7,25 @@
 // step 2 - for each iteration access element at given position in nums and add to acc
 // step 3 - return acc
 
-class NumArray {
+class NumArray_ {
   private nums;
   constructor(nums: number[]) {
     this.nums = nums;
   }
+
+  sumRange(left: number, right: number): number {
+    let acc = 0;
+    for (; left <= right; left++) {
+      acc += this.nums[left];
+    }
+    return acc;
+  }
+}
+
+// fine tune
+
+class NumArray {
+  constructor(private readonly nums: number[]) {}
 
   sumRange(left: number, right: number): number {
     let acc = 0;
