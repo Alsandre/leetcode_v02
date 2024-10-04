@@ -24,7 +24,7 @@ class NumArray_ {
 
 // fine tune
 
-class NumArray {
+class NumArray__ {
   constructor(private readonly nums: number[]) {}
 
   sumRange(left: number, right: number): number {
@@ -35,3 +35,27 @@ class NumArray {
     return acc;
   }
 }
+
+// optimized version
+// using prefixSum
+
+class NumArray {
+  private inclusivePrefixSum: number[] = [];
+  constructor(private readonly nums: number[]) {
+    let acc = nums[0];
+    this.inclusivePrefixSum[0] = acc;
+    for (let i = 1; i < nums.length; i++) {
+      acc += nums[i];
+      this.inclusivePrefixSum.push(acc);
+    }
+  }
+
+  sumRange(left: number, right: number): number {
+    const leftSum = left === 0 ? 0 : this.inclusivePrefixSum[left - 1];
+    return this.inclusivePrefixSum[right] - leftSum;
+  }
+}
+
+const obj = new NumArray([1, 2, 3, 4, 5]);
+const sum = obj.sumRange(1, 2);
+console.log(sum);
