@@ -25,3 +25,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 7**: _219. Contains Duplicate II_
 - **Array problem - 8**: _228. Summary Ranges_
 - **Array problem - 9**: _268. Missing Number_
+- **Array problem - 10**: _303. Range Sum Query Immutable_
