@@ -26,3 +26,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 8**: _228. Summary Ranges_
 - **Array problem - 9**: _268. Missing Number_
 - **Array problem - 10**: _303. Range Sum Query Immutable_
+- **Array problem - 11**: _350. Intersection of Two Arrays II_
