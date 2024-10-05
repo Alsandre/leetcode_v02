@@ -24,3 +24,40 @@
 // მოქმედება 11 - თუ ელემენტი წარმოდგენილია ორივე ობიექტში მაშინ დავამატოთ იგი result მასივში ელემენტების სიხშირეებს შორის უმცირესი მნიშვნელობის შესაბამისად
 // მოქმედება 12 - თუ ელემენტი წარმოდგენი არ არის რომელიმე ობიექტში მაშინ გამოვტოვოთ იტერაცია
 // მოქმედება 13 - დავაბრუნოთ result მასივი
+
+function intersect(nums1: number[], nums2: number[]): number[] {
+  // მოქმედებები 1-2
+  let hashNums1: { [key: number]: number } = {};
+  let hashNums2: { [key: number]: number } = {};
+  let result: number[] = [];
+
+  // მოქმედება 3
+  for (let element of nums1) {
+    // მოქმედება 4-6
+    hashNums1[element] = hashNums1[element] ? hashNums1[element] + 1 : 1;
+  }
+
+  // მოქმედება 7
+  for (let element of nums2) {
+    // მოქმედება 8
+    hashNums2[element] = hashNums2[element] ? hashNums2[element] + 1 : 1;
+  }
+
+  // მოქმედება 9
+  for (let key in hashNums1) {
+    // მოქმედება 10
+    if (hashNums2.hasOwnProperty(key)) {
+      for (let i = 0; i < Math.min(hashNums1[key], hashNums2[key]); i++) {
+        result.push(Number(key));
+      }
+    }
+  }
+
+  return result;
+}
+
+let nums1 = [1, 2, 2, 1],
+  nums2 = [2, 2];
+
+let res = intersect(nums1, nums2);
+console.log(res);
