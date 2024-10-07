@@ -31,18 +31,18 @@ function islandPerimeter(grid: number[][]): number {
     commEdge = 0;
 
   for (let i = 0; i < grid.length; i++) {
-    let tempOnes = 0;
     for (let j = 0; j < grid[i].length; j++) {
       let curr = grid[i][j];
       if (curr === 1) {
         ones++;
-        tempOnes++;
         if (grid[i - 1] && grid[i - 1][j] === 1) {
+          commEdge++;
+        }
+        if (grid[i][j - 1] && grid[i][j - 1] === 1) {
           commEdge++;
         }
       }
     }
-    commEdge += tempOnes - 1;
   }
   return ones * 4 - commEdge * 2;
 }
