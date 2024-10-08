@@ -28,3 +28,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 10**: _303. Range Sum Query Immutable_
 - **Array problem - 11**: _350. Intersection of Two Arrays II_
 - **Array problem - 12**: _463. Island Parameter_
+- **Array problem - 12**: _495. Teemo Attacking_
