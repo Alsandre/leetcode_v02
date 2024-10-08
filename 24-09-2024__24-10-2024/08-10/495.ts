@@ -31,3 +31,18 @@
 // ნაბიჯი 6 - წინააღმდეგ შემთხვევაში გამოვთვალოთ სხვაობა pointer და ამჟამინდელ ელემენტებს შორის დავუმატოთ ხანგრძლივობა და ეს მნიშვნელობა გადავაწეროთ sum; pointer მივცეთ ამჟამინდელი ელემენტი მნიშვნელობად
 // ნაბიჯი 7 - გავიმეოროთ 5-6 ყოველი მომდევნო ელემენტისთვის
 // ნაბიჯი 8 - დავაბრუნოთ sum
+
+function findPoisonedDuration(timeSeries: number[], duration: number): number {
+  let sum = 0;
+  let pointer = timeSeries[0];
+  if (timeSeries.length === 1) return duration;
+  for (let i = 1; i < timeSeries.length; i++) {
+    let cur = timeSeries[i];
+    let pre = timeSeries[i - 1];
+    if (cur - pre > duration) {
+      sum += pre + duration - pointer;
+      pointer = cur;
+    }
+  }
+  return sum;
+}
