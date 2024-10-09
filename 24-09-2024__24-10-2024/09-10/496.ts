@@ -31,7 +31,7 @@
 // ნაბიჯი 8 - დავამატოთ searchRes შედეგების მასივში result
 // ნაბიჯი 9 - დავაბრუნოთ result როგორც ფუნქციის შედეგი
 
-function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
+function _nextGreaterElement(nums1: number[], nums2: number[]): number[] {
   let result: number[] = [];
   for (let i = 0; i < nums1.length; i++) {
     let searchRes = -1;
@@ -46,3 +46,36 @@ function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
   }
   return result;
 }
+
+// საკმაოდ უცნაურია რომ ამჟამინდელი იმპლემენტაცია ეფექტურად მუშაობს 97.68% გადაჭრებზე უკეთესია
+// დროითი კომპლექსურობის თვალსაზრისით
+
+// თუმცა ვფიქრობ არსებობს ოპტიმიზაციის გზები
+// მაგალითად indexOf მეთოდის დროის კომპლექსურობა არის O(n) და ჩვენ მას ვიძახებთ თითოეული ელემენტისთვის მცირე მასივში
+// კონკრეტულად ამ ოპერაციის ოპტიმიზაციისთვის შეგვიძლია შევქმნათ სამიზნე მასივის რუკა
+// შესაბამისად ინდექსის ძიება გახდება O(1)
+// ხოლო საერთო ჯამში ალგორითმის ეს ნაწილი O(n^2) დან შემცირდება O(n) მდე
+
+function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
+  let result: number[] = [];
+  let nums2Hash: { [key: number]: number } = {};
+  for (let i = 0; i < nums2.length; i++) {
+    nums2Hash[nums2[i]] = i;
+  }
+  for (let i = 0; i < nums1.length; i++) {
+    let searchRes = -1;
+    let startInd = nums2Hash[nums1[i]];
+    for (let j = startInd; j < nums2.length; j++) {
+      if (nums2[j] > nums1[i]) {
+        searchRes = nums2[j];
+        break;
+      }
+    }
+    result.push(searchRes);
+  }
+  return result;
+}
+
+// ამ მიდგომით გაუმჯობესდა მეხსიერების გამოყენების კომპლექსურობა, რაც ცოტათი უცნაურია
+// თუმცა საბოლოო შედეგი დამაკმაყოფილებელია, არსებული მოთხოვნებისთვის
+// ამავდროულად ვფიქრობ რომ ოპტიმიზაციისთვის რა თქმა უნდა კიდევ არსებობს სივრცე
