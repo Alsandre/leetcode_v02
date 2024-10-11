@@ -31,3 +31,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 13**: _495. Teemo Attacking_
 - **Array problem - 14**: _496. Next Greater Element I_
 - **Array problem - 15**: _500. Keyboard Row_
+- **Array problem - 16**: _506. Relative Ranks_
