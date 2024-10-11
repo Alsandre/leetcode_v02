@@ -22,6 +22,6 @@ Explanation: The placements are [1st, 5th, 3rd, 2nd, 4th].
 Constraints:
 
 n == score.length
-1 <= n <= 104
-0 <= score[i] <= 106
+1 <= n <= 10^4
+0 <= score[i] <= 10^6
 All the values in score are unique.
