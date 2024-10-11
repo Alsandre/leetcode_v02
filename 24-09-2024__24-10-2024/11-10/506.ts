@@ -19,3 +19,23 @@
 // ნაბიჯი 6 - ჩანერგილი ციკლის დასრულების შემდეგ თუ ელემენტის რანგი 1,2 ან 3 მაშინ დავამატოტ შესაბამისი მნიშვნელობა answer მასივში
 // ნაბიჯი 7 - თუ მნიშვნლობა რიგითია მაშინ მოდიფიკაციის გარეშე დავამატოთ answer მასივში
 // ნაბიჯი 8 - დავაბრუნოთ answer მასივი როგორც ფუნქციიშ შედეგი
+
+function findRelativeRanks(score: number[]): string[] {
+  let answer: string[] = [];
+  for (let i = 0; i < score.length; i++) {
+    let rankCounter: number = 0;
+    for (let j = 0; j < score.length; j++) {
+      if (score[j] > score[i]) rankCounter++;
+    }
+    if (rankCounter !== 0 && rankCounter !== 1 && rankCounter !== 2)
+      answer.push(`${rankCounter + 1}`);
+    else if (rankCounter === 0) answer.push("Gold Medal");
+    else if (rankCounter === 1) answer.push("Silver Medal");
+    else if (rankCounter === 2) answer.push("Bronze Medal");
+    rankCounter = 0;
+  }
+  return answer;
+}
+
+// ჩემთვის გასაკვირად მოცემული პირდაპირი გადაჭრა მუშაობს
+// თუმცა რაღა თქმა უნდა სიჩქარის თვალსაზრისით ძალიან არაეფექტურია
