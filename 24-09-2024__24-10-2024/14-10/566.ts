@@ -17,3 +17,34 @@
 // ნაბიჯი 6 - ჩავწეროთ [newCol][newRow] ზე [origCol][origRow]
 // ნაბიჯი 7 - მიმართული ცვლადები ვაკონტროლოთ და განვააახლოთ თ გახდება არავალიდური
 // ნაბიჯი 8 - დავაბრუნოთ answer როგორც ფუნქციის შედეგი
+
+function matrixReshape(mat: number[][], r: number, c: number): number[][] {
+    let origCols = mat[0].length;
+    let origRows = mat.length;
+    console.log(origRows, origCols);
+  
+    if (origCols * origRows !== c * r) return mat;
+  
+    let answer = Array.from({ length: r }, () => Array(c).fill(0));
+    for (let i = 0; i < r * c; i++) {
+      let origRow = Math.floor(i / origCols);
+      let origCol = i % origCols;
+      // console.log('old',origRow, origCol);
+  
+      let newRow = Math.floor(i / c);
+      let newCol = i % c;
+      answer[newRow][newCol] = mat[origRow][origCol];
+    }
+    return answer;
+  }
+  
+  let ans = matrixReshape(
+    [
+      [1, 2],
+      [3, 4],
+    ],
+    4,
+    1
+  );
+  
+  console.log(ans)
