@@ -34,3 +34,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 16**: _506. Relative Ranks_
 - **Array problem - 17**: _561. Array Possition_
 - **Array problem - 18**: _566. Reshape the Matrix_
+- **Array problem - 19**: _575. Distribute Candies_
