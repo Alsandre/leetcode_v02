@@ -26,7 +26,7 @@
 // ნაბიჯი 5 - თუ frequencies გასაღებების რაოდენობა მეტია n/2, მაშინ დავაბრუნოთ n/2
 // ნაბიჯი 6 - სხვა შემთხვევაში დავაბრუნოთ გასაღებების რაოდენობა
 
-function distributeCandies(candyType: number[]): number {
+function _distributeCandies(candyType: number[]): number {
   let frequencies: { [key: number]: boolean } = {};
   let candyCount = candyType.length;
   for (let i = 0; i < candyCount; i++) {
@@ -42,3 +42,6 @@ function distributeCandies(candyType: number[]): number {
 // შედარებით ოპტიმალურია Set ჩაშენებული ობიექტის გამოყენება
 // ასევე საბოლოო პასუხის დასაბრუნებლადაც არ არის საჭირო რთული ლოგიკა
 // პრობლემის გადაჭრა შეიძლება ერთ ხაზში ჩაიწეროს.
+
+const distributeCandies = (candyType: number[]): number =>
+  Math.min(new Set(candyType).size, candyType.length / 2);
