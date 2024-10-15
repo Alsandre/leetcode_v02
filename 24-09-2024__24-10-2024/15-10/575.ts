@@ -28,10 +28,11 @@
 
 function distributeCandies(candyType: number[]): number {
   let frequencies: { [key: number]: boolean } = {};
-  for (let i = 0; i < candyType.length; i++) {
+  let candyCount = candyType.length;
+  for (let i = 0; i < candyCount; i++) {
     frequencies[candyType[i]] = true;
   }
-  if (Object.keys(frequencies).length > candyType.length / 2)
-    return candyType.length / 2;
-  else return Object.keys(frequencies).length;
+  let typesCount = Object.keys(frequencies).length;
+  if (typesCount > candyCount / 2) return candyCount / 2;
+  else return typesCount;
 }
