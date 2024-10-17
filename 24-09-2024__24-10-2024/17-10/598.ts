@@ -20,11 +20,14 @@
 
 function maxCount(m: number, n: number, ops: number[][]): number {
   if (ops.length === 0) return m * n;
-  let minM = 0,
-    minN = 0;
+  let minM = 4*10**4,
+    minN = 4*10**4;
   for (let i = 0; i < ops.length; i++) {
     minM = Math.min(minM, ops[i][0]);
     minN = Math.min(minN, ops[i][1]);
   }
   return minM * minN;
 }
+
+// შესწორება: რადგან ვეძებთ ოპერაციათა საზღვრების უმცირეს მნიშვნელობებს, minN & minM საწყისი მნიშვნელობად 0 გამოუსადეგარია
+// რადგან ისინი ყოველთვის უმცირესნი იქნებიან ნებისმიერ სხვა მნიშვნელობასთან შედარებით
