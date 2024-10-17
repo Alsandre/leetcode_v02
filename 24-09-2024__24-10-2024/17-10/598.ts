@@ -17,3 +17,14 @@
 // შევქმნათ ციკლი ოპერაციათა მასივის ყველა წყვილის გამოსაძახებლად
 // იტერაციისა ვაკონტროლოთ წყვილის უმცირესი მნიშვნელობა და შევინახოთ ის შესაბამისად minM & minN ცვლადებში
 // დავაბრუნოთ minM*minN როგორც ფუნქციის შედეგი
+
+function maxCount(m: number, n: number, ops: number[][]): number {
+  if (ops.length === 0) return m * n;
+  let minM = 0,
+    minN = 0;
+  for (let i = 0; i < ops.length; i++) {
+    minM = Math.min(minM, ops[i][0]);
+    minN = Math.min(minN, ops[i][1]);
+  }
+  return minM * minN;
+}
