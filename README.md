@@ -36,3 +36,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 18**: _566. Reshape the Matrix_
 - **Array problem - 19**: _575. Distribute Candies_
 - **Array problem - 20**: _594. Longest Harmonious Subsequence_
+- **Array problem - 21**: _598. Range Addition II_
