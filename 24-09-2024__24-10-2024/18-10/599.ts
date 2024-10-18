@@ -17,14 +17,14 @@
 // ნაბიჯი 9 - დავაბრუნოთ commonTerms ობიექტიდან ის მასივი რომელიც შენახულია minSum გასაღებზე
 
 function findRestaurant(list1: string[], list2: string[]): string[] {
-  let list1ToMap = list1.reduce(
+  let list1ToMap: { [key: string]: number } = list1.reduce(
     (acc, val, ind) => ({ ...acc, [val]: ind }),
     {}
   );
-  let minSum = list1.length;
+  let minSum = list1.length+list2.length;
   let commonTerms: { [key: number]: string[] } = {};
   for (let i = 0; i < list2.length; i++) {
-    if (list1ToMap[list2[i]]) {
+    if (list1ToMap[list2[i]] !== undefined) {
       let indSum = list1ToMap[list2[i]] + i;
       if (commonTerms[indSum]) commonTerms[indSum].push(list2[i]);
       else commonTerms[indSum] = [list2[i]];
@@ -33,3 +33,7 @@ function findRestaurant(list1: string[], list2: string[]): string[] {
   }
   return commonTerms[minSum];
 }
+
+findRestaurant(["vacag", "KFC"], ["fvo", "xrljq", "jrl", "KFC"]);
+
+// პატარა შესწორებებით მუშაობს, თუმცა ვერ ვიტყვით რომ ეფექტურად
