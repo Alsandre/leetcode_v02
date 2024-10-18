@@ -15,3 +15,21 @@
 // ნაბიჯი 7 - სხვა შემთხვევაში შევქმნათ ახალი გასაღები commonTerms ობიექტში და გავუტოლოთ იგი მასივში მოქცეული ამჟამინდელი ელემენტის მნიშვნელობას
 // ნაბიჯი 8 - თუ ეს ჯამი უფრო ნაკლებია ვიდრე minSum ამჟამინდელი მნიშვნელობა მაშინ გავუტოლოთ minSum მნიშვნელობა ჯამს
 // ნაბიჯი 9 - დავაბრუნოთ commonTerms ობიექტიდან ის მასივი რომელიც შენახულია minSum გასაღებზე
+
+function findRestaurant(list1: string[], list2: string[]): string[] {
+  let list1ToMap = list1.reduce(
+    (acc, val, ind) => ({ ...acc, [val]: ind }),
+    {}
+  );
+  let minSum = list1.length;
+  let commonTerms: { [key: number]: string[] } = {};
+  for (let i = 0; i < list2.length; i++) {
+    if (list1ToMap[list2[i]]) {
+      let indSum = list1ToMap[list2[i]] + i;
+      if (commonTerms[indSum]) commonTerms[indSum].push(list2[i]);
+      else commonTerms[indSum] = [list2[i]];
+      minSum = Math.min(minSum, indSum);
+    }
+  }
+  return commonTerms[minSum];
+}
