@@ -22,3 +22,4 @@ function canPlaceFlowers(flowerbed: number[], n: number): boolean {
     return n <= 0
 };
 
+// გასაოცარია, 100% ზე სწრაფი და 95% ზე მცირე მეხსიერების მოხმარებით
