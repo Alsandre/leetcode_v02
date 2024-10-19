@@ -17,7 +17,10 @@ function canPlaceFlowers(flowerbed: number[], n: number): boolean {
         let validPrev = flowerbed[i-1] !== undefined ? flowerbed[i-1] === 0 : true
         let validNext = flowerbed[i+1] !== undefined ? flowerbed[i+1] === 0 : true
         let isValid = flowerbed[i] === 0 && validNext && validPrev
-        if(isValid) n--
+        if(isValid){
+            flowerbed[i] = 1
+            n--
+        }
     }
     return n <= 0
 };
