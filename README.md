@@ -38,3 +38,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 20**: _594. Longest Harmonious Subsequence_
 - **Array problem - 21**: _598. Range Addition II_
 - **Array problem - 22**: _599. Minimum Index Sum of Two Lists_
+- **Array problem - 23**: _605. Can Place Flowers_
