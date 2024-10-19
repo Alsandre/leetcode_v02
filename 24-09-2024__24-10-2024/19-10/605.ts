@@ -11,3 +11,14 @@
 // ნაბიჯი 1 - შევქმნათ ციკლი გადმოცემული მასივის ელემენტების გამოსაძახებლად
 // ნაბიჯი 2 - თუ ამჟამინდელი ელემენტი ვალიდური ქოთანია, ჩავრგოთ მასში ყვავილი და შევამციროთ ყვავილების რაოდენობა
 // ნაბიჯი 3 - ციკლის დასრულების შემდეგ თუ დაგვღცა ჩაურგველი ყვავილები დავაბრუნოთ false  სხვა შემთხვევაში დავაბრუნოთ true როგორც ფუნქციის შედეგი
+
+function canPlaceFlowers(flowerbed: number[], n: number): boolean {
+    for(let i=0; i<flowerbed.length; i++){
+        let validPrev = flowerbed[i-1] !== undefined ? flowerbed[i-1] === 0 : true
+        let validNext = flowerbed[i+1] !== undefined ? flowerbed[i+1] === 0 : true
+        let isValid = flowerbed[i] === 0 && validNext && validPrev
+        if(isValid) n--
+    }
+    return n <= 0
+};
+
