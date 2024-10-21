@@ -39,3 +39,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 21**: _598. Range Addition II_
 - **Array problem - 22**: _599. Minimum Index Sum of Two Lists_
 - **Array problem - 23**: _605. Can Place Flowers_
+- **Array problem - 24**: _628. Maximum Product of Three Numbers_
