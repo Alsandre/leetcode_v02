@@ -23,3 +23,48 @@
 // ნაბიჯი 3 - თუ უდიდესი ელემენტი უარყოფითია ან უმცირესი ელემენტი დადებითია, მაშინ დავაბრუნოთ უდიდესი სამი ელემენტის ნამრავლი
 // ნაბიჯი 4 - თუ ორი უმცირესი მნიშვნელობის ნამრავლი მეტია მე-2 და მე-3 უდიდესი მნიშვნელობების ნამრავლზე, მაშინ დავაბრუნოთ ორი უმცირესი და ერთი უდიდეს მნიშვნელობათა ნამრავლი
 
+function maximumProduct(nums: number[]): number {
+    let sorted = mergeSort(nums);
+    let len = sorted.length
+    let min1 = sorted[0];
+    let min2 = sorted[1];
+    let min3 = sorted[3];
+    let max1 = sorted[len-1]
+    let max2 = sorted[len-2]
+    let max3 = sorted[len-3]
+    
+    if(max1 < 0 || min1 > 0) {
+      return max1 * max2 * max3
+    }
+    if(min1 * min2 >  max2 * max3) {
+      return min1 * min2 * max1
+    }
+
+}
+
+function mergeSort(numArray: number[]): number[] {
+  if (numArray.length <= 1) {
+    return numArray;
+  }
+  const mid = Math.floor(numArray.length/2)
+  const left = numArray.slice(0, mid)
+  const right = numArray.slice(mid, numArray.length);
+  const leftSorted = mergeSort(left)
+  const rightSorted = mergeSort(right)
+
+  return merge(leftSorted, rightSorted);
+
+  function merge(arrLeft: number[], arrRight: number[]): number[] {
+    let sorted: number[] = [];
+    while (arrLeft.length > 0 && arrRight.length > 0) {
+      if (arrLeft[0] > arrRight[0]) sorted.push(arrRight.shift()!);
+      else sorted.push(arrLeft.shift()!);
+    }
+    if (arrLeft.length) sorted = sorted.concat(arrLeft);
+    if (arrRight.length) sorted = sorted.concat(arrRight);
+    return sorted;
+  }
+}
+
+let ans = mergeSort([1, 2, -5, 3, 20, -6])
+console.log(ans)
