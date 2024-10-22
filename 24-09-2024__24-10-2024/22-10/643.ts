@@ -5,8 +5,21 @@
 // შესაძლოა შევქმნათ ცვლადი რომელშიც ყოველ შესაძლო მნიშვნელობას შევინახავთ
 // ან შევქმნათ ცვლად სადაც მხოლოდ უდიდეს მნიშვნელობას დავაფიქსირებთ
 
-// ალგორითმი 
+// ალგორითმი
 // ნაბიჯი 1 - შევქმნათ ცვლადი validSubArrSums = []
 // ნაბიჯი 2 - გავმართოთ ციკლი მასივზე იტერაციისთვის მოძრავი ფანჯრის პრინციპით
 // ნაბიჯი 3 - თითოეული ქვემიმდევრობის ჯამი შევინახოთ validSubArrSums ში
 // ნაბიჯი 4 - დავაბრუნოთ უდიდესი ჯამის განაყოფი გადმოცემუ k არგუმენტზე
+
+function findMaxAverage(nums: number[], k: number): number {
+  let validSubArrSums: number[] = [];
+  for (let i = 0; i <= nums.length - k; i++) {
+    validSubArrSums.push(
+      nums.slice(i, i + k).reduce((acc, val) => acc + val, 0)
+    );
+    console.log(Math.max(...validSubArrSums))
+  }
+  return Math.max(...validSubArrSums)/k
+}
+
+let ans = findMaxAverage([5], 4)
