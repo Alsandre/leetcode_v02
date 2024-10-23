@@ -18,15 +18,34 @@
 // ნაბიჯი 3 - თითოეული ელემენტისთვის გამოვიძახოთ საშუალოს მთვლელი და მიღებული შედეგი ჩავსვათ შესაბამის პოზიციაზე smoother მასივში
 
 function imageSmoother(img: number[][]): number[][] {
+  if (img.length === 1 && img[0].length === 1) return img;
   let height = img.length;
   let width = img[0].length;
-  let smoother: number[] = [];
+  let smoother: number[][] = [];
+
+  if (img.length === 1) {
+    return [
+      img[0].map((c, i, r) => {
+        if (i === 0) return Math.floor((c + r[i + 1]) / 2);
+        if (i === r.length - 1) return Math.floor((c + r[i - 1]) / 2);
+        return Math.floor((c + r[i + 1] + r[i - 1]) / 3);
+      }),
+    ];
+  }
+  if (img[0].length === 1) {
+    return img.map((r, i, c) => {
+      if (i === 0) return [Math.floor((r[0] + c[1][0]) / 2)];
+      if (i === c.length - 1) return [Math.floor((c[i][0] + c[i - 1][0]) / 2)];
+      return [Math.floor((r[0] + c[i - 1][0] + c[i + 1][0]) / 3)];
+    });
+  }
 
   for (let k = 0; k < img.length; k++) {
+    let row: number[] = [];
     for (let m = 0; m < img[0].length; m++) {
-      if (averageCounter(k, m) !== undefined)
-        smoother.push(averageCounter(k, m));
+      if (averageCounter(k, m) !== undefined) row.push(averageCounter(k, m));
     }
+    smoother.push(row);
   }
 
   function averageCounter(i: number, j: number): number {
@@ -41,19 +60,19 @@ function imageSmoother(img: number[][]): number[][] {
     let isLEdge = i > 0 && i < height - 1 && j === 0;
     if (isTL) {
       let sum = img[i][j] + img[i][j + 1] + img[i + 1][j] + img[i + 1][j + 1];
-      return Math.floor(sum) / 4;
+      return Math.floor(sum / 4);
     }
     if (isTR) {
       let sum = img[i][j] + img[i][j - 1] + img[i + 1][j] + img[i + 1][j - 1];
-      return Math.floor(sum) / 4;
+      return Math.floor(sum / 4);
     }
     if (isBL) {
       let sum = img[i][j] + img[i][j + 1] + img[i - 1][j] + img[i - 1][j + 1];
-      return Math.floor(sum) / 4;
+      return Math.floor(sum / 4);
     }
     if (isBR) {
       let sum = img[i][j] + img[i][j - 1] + img[i - 1][j] + img[i - 1][j - 1];
-      return Math.floor(sum) / 4;
+      return Math.floor(sum / 4);
     }
     if (isTEdge) {
       let sum = 0;
@@ -100,11 +119,9 @@ function imageSmoother(img: number[][]): number[][] {
     return Math.floor(sum / 9);
   }
   console.log(smoother);
-  return [smoother];
+  return smoother;
 }
 
-imageSmoother([
-  [100, 200, 100],
-  [200, 50, 200],
-  [100, 200, 100],
-]);
+let ans = imageSmoother([[100], [200], [100]]);
+
+console.log(ans);
