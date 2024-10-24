@@ -18,3 +18,25 @@
 // ნაბიჯი 5 - თუ მომდევნო ელემენტი მეტია ამჟამინდელზე, მისი ინდექსი შევინახოთ end ში
 // ნაბიჯი 6 - თუ მომდევნო ელემენტის მნიშვნელობა არ არის ამჟამინდელზე მეტი, მაშინ ამჟამინდელ და არსებულ სიგრძეებს შორის შევინახოთ უდიდესი და გავანულოთ მიმთითებელი ცვლადები
 
+function findLengthOfLCIS(nums: number[]): number {
+  let start: number | null = null,
+    end: number | null = null;
+  let curSeq = [0, 0];
+
+  for (let i = 0; i < nums.length; i++) {
+    if (start === null && nums[i + 1] && nums[i + 1] > nums[i]) {
+      start = i;
+      end = i + 1;
+    } else if (nums[i + 1] && nums[i + 1] > nums[i]) {
+      end = i + 1;
+    } else {
+      curSeq = curSeq[1] - curSeq[0] > end! - start! ? curSeq : [start!, end!];
+      start = null;
+      end = null;
+    }
+  }
+  console.log(curSeq);
+  return curSeq[1] - curSeq[0] +1;
+}
+
+findLengthOfLCIS([1, 3, 5, 4, 7]);
