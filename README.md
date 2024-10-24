@@ -41,4 +41,5 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 23**: _605. Can Place Flowers_
 - **Array problem - 24**: _628. Maximum Product of Three Numbers_
 - **Array problem - 25**: _643. Maximum Average Subarray I_
-- **Array problem - 27**: _661. Image Smoother_
+- **Array problem - 26**: _661. Image Smoother_
+- **Array problem - 27**: _674. Longest Continuous Increasing Subsequence_
