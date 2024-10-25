@@ -43,3 +43,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 25**: _643. Maximum Average Subarray I_
 - **Array problem - 26**: _661. Image Smoother_
 - **Array problem - 27**: _674. Longest Continuous Increasing Subsequence_
+- **Array problem - 28**: _682. Baseball Game_
