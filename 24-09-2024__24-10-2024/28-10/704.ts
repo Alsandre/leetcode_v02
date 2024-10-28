@@ -13,3 +13,19 @@
 // ნაბიჯი 3 - სხვა შემთხვევაში თუ შუა ელემენტი უფრო მეტია ვიდრე საძიებო ელემენტი, გავაგრძელოთ ძებნა მარცხნივ
 // ნაბიჯი 4 - თუ შუა ელემენტი უფრო ნაკლებია ვიდრე საძიებო ელემენტი, გავაგრძელოთ ძებნა მარცხნივ
 // ნაბიჯი 5 - თუ ვერ ვიპოვეთ დამთხვევა დავაბრუნოთ -1
+
+function search(nums: number[], target: number): number {
+  let mid = Math.floor(nums.length / 2);
+  if (nums[mid] === target) return mid;
+  if (nums[mid] > target) {
+    let left = nums.slice(0, mid);
+    search(left, target);
+  } else {
+    let right = nums.slice(mid, nums.length);
+    search(right, target);
+  }
+
+  return -1;
+}
+
+search([-1, 0, 3, 5, 9, 12], 9);
