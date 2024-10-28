@@ -16,16 +16,18 @@
 
 function search(nums: number[], target: number): number {
   let mid = Math.floor(nums.length / 2);
-  if (nums[mid] === target) return mid;
-  if (nums[mid] > target) {
-    let left = nums.slice(0, mid);
-    search(left, target);
-  } else {
-    let right = nums.slice(mid, nums.length);
-    search(right, target);
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    if (nums[mid] === target) return mid;
+    else if (nums[mid] > target) right = mid - 1;
+    else left = mid + 1;
+    mid = Math.floor((left + right) / 2);
   }
-
-  return -1;
+  return -1
 }
 
-search([-1, 0, 3, 5, 9, 12], 9);
+let ans = search([-1, 0, 3, 5, 9, 12], 12);
+console.log(ans);
+// რეკურსიული მიდგომა, საწყისი მასივის გადაყოლების გარეშე
+// რადგან მოდიფიცირებული მასივში ელემენტის ძიებისას, ამ ელემენტის პოზიციის იდენტიფიცირება საწყის მასივში რთული იქნება
