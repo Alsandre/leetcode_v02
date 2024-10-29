@@ -46,3 +46,4 @@ I decide to take arrays on, there are 1749 problems 364-easy 947-med 438-med. go
 - **Array problem - 28**: _682. Baseball Game_
 - **Array problem - 29**: _697. Degree of an Array_
 - **Array problem - 30**: _704. Binary Search_
+- **Array problem - 31**: _717. 1-bit and 2-bit Characters_
