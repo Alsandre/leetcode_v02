@@ -9,3 +9,12 @@
 // ნაბიჯი 2 - თუ ამჟამინდელი წევრი არის 1 მაშინ ის ორობითი ელემენტის ნაწილია და ვინაცვლებთ წინ 2 ბიჯით
 // ნაბიჯი 3 - თუ ამჟამინდელი წევრი არის 0 მაშინ ის ცალკეული წევრია და ვამოწმებთ შემდეგ წევრს
 // ნაბიჯი 4 - თუ ბოლო წევრი ცალკეულია ვაბრუნებთ true სხვა შემთხვევაში false
+
+function isOneBitCharacter(bits: number[]): boolean {
+    for(let i=0; i<bits.length; ){
+        if(i=== bits.length-1) return true
+        if(bits[i] === 1) i+=2
+        else if(bits[i] === 0) i++
+    }
+    return false
+};
